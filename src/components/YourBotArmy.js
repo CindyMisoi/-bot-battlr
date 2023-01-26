@@ -11,7 +11,7 @@ const bots  = props.bots.map((bot)=>{
     />
 })
     return(
-        <div>
+        <div className='bot-army'>
             {bots}
             {
                 bots.length === 0? <h1>Your Bots</h1> : null

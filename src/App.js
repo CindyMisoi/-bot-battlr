@@ -35,7 +35,7 @@ const removeBot = (bot) =>{
       </div>
     
     <div className='bot-list'>
-    <h3>Bot Collection</h3>
+    <h3>Bot Collection</h3>list
      <BotCollection bots= {bots} botFunction = {addBot}/>
     </div>
     

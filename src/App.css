@@ -3,8 +3,9 @@
   margin-top: 10px;
 }
 .bot-list{
-  display: inline-flex;
-  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  margin:-10px;
 }
 .bot-container{
  background-color: rgb(194, 190, 185);
