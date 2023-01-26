@@ -1,6 +1,25 @@
 import React from "react";
 
-function BotSpecs({ bot }) {
+const BotSpecs = props => {
+  
+  let { bot, seeAll, enlist } = props;
+
+  let botType;
+
+  switch (props.bot.bot_class) {
+    case "Assault":
+      botType = <i className="icon large circular military" />;
+      break;
+    case "Defender":
+      botType = <i className="icon large circular shield" />;
+      break;
+    case "Support":
+      botType = <i className="icon large circular ambulance" />;
+      break;
+    default:
+      botType = <div />;
+  }
+
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -9,18 +28,17 @@ function BotSpecs({ bot }) {
             <img
               alt="oh no!"
               className="ui medium circular image bordered"
-              src={bot.avatar_url}
+              src={props.bot.avatar_url}
             />
           </div>
           <div className="four wide column">
-            <h2>Name: {bot.name}</h2>
+            <h2>Name: {props.bot.name}</h2>
             <p>
               <strong>Catchphrase: </strong>
-              {bot.catchphrase}
+              {props.bot.catchphrase}
             </p>
             <strong>
-              Class: {bot.bot_class}
-              <i className={botTypeClasses[bot.bot_class]} />
+              Class: {props.bot.bot_class} {botType}
             </strong>
             <br />
             <div className="ui segment">
@@ -28,34 +46,25 @@ function BotSpecs({ bot }) {
                 <div className="row">
                   <div className="column">
                     <i className="icon large circular red heartbeat" />
-                    <strong>{bot.health}</strong>
+                    <strong>{props.bot.health}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular yellow lightning" />
-                    <strong>{bot.damage}</strong>
+                    <strong>{props.bot.damage}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular blue shield" />
-                    <strong>{bot.armor}</strong>
+                    <strong>{props.bot.armor}</strong>
                   </div>
                 </div>
               </div>
             </div>
-            <button
-              className="ui button fluid"
-              onClick={() =>
-                console.log("connect this to a function that shows all bots")
-              }
-            >
+            <button className="ui button fluid" onClick={seeAll}>
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
-              }
+              onClick={() => props.handleClick(bot.id)}
             >
               Enlist
             </button>
@@ -64,6 +73,6 @@ function BotSpecs({ bot }) {
       </div>
     </div>
   );
-}
+};
 
 export default BotSpecs;
