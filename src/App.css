@@ -65,7 +65,15 @@ span {
 }
 
 .ui.grid>.row.bot-army-row {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-height: 100%;
  
+}
+.row{
+  background-color: #b1b9e9;
+  border-radius: 3px;
+  margin: 1.5rem;
+  justify-content: center;
+  align-content: center;
+  width: 300px;
 }
